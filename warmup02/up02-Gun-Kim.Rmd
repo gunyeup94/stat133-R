@@ -1,0 +1,40 @@
+---
+title: "Warmup02"
+author: "Gun Yeup Kim"
+date: "2017³â 9¿ù 14ÀÏ"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+  #download data
+  url = paste0('https://github.com/ucb-stat133/stat133-hws-fall17/', 'raw/master/warmup02/data/nba2017-salary-points.RData')
+destfile = "nba2017-salary-points.RData"
+load("nba2017-salary-points.RData")
+```
+
+```{r}
+  #evaluating points
+  summary(points)
+  hist(points)
+  boxplot(points)
+```
+```{r}
+  plot(density(points))
+  #adding a Normal Curve
+  x <- points
+  xfit <- seq(min(x), max(x), length = 2500)
+  yfit <- dnorm(xfit, mean = mean(x), sd = sd(x))
+  plot(density(yfit))
+```
+
+
