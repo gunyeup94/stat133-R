@@ -1,0 +1,175 @@
+---
+title: "hw01-Gun-Kim"
+author: "Gun Yeup Kim"
+date: "2017 9 22"
+output:
+  github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+  #load data file
+  load("nba2017-salary-points.RData")
+```
+# 1. A bit of data preprocessing
+```{r}
+  #Creating a new salary variable measured in millions of dollars, up to 2 decimal digits
+  salary <- salary/1000000
+  salary <- format(round(salary,2), nsmall =2)
+  salary
+```
+```{r}
+  #Replace R to 0
+  experience <- replace(experience, experience == "R",0)
+  experience <- as.integer(experience)
+  experience
+```
+```{r}
+  #Creating new position variable as an R factor with more decriptive labels
+  position <- replace(position,position == "C", 'center')
+  position <- replace(position,position == "SF", 'small_fwd')
+  position <- replace(position,position == "PF", 'power_fwd')
+  position <- replace(position,position == "SG", 'shoot_guard')
+  position <- replace(position,position == "PG", 'point_guard')
+  position <- as.factor(position)
+    position
+```
+```{r}
+  #Computing the frequencies for position
+  position_frequencies <- table(position)
+  position_frequencies
+  ```
+# 2. Scatterplot of Points and Salary
+ ```{r}
+  plot(points, salary, col = "red", xlab = "Points", ylab = "Salary (in millions)", main = "Scatterplot of Points and Salary")
+```
+
+
+# 3. Correlation between Points and Salary
+```{r}
+  #Creating all the variable to calculate Correlation between Points and Salary
+  n <- 441
+  mean_points <-  sum(points)/n
+  int_salary <- as.integer(salary)
+  mean_salary <- sum(int_salary)/n
+  #Variance for points
+  sample_minus_mean_points <- (points - mean_points)^2
+  var_points <- sum(sample_minus_mean_points)/(n-1)
+  #Variance for salary
+  sample_minus_mean_salary <- (int_salary - mean_salary)^2
+  var_salary <- sum(sample_minus_mean_salary)/(n-1)
+  #Standard Deviation for points
+  sd_points <- sqrt(var_points)
+  #Standard Deviation for salary
+  sd_salary <- sqrt(var_salary)
+  #Covariance
+  joint_points_salary <- (points - mean_points)*(int_salary-mean_salary)
+  cov_points_salary <- sum(joint_points_salary)/(n-1)
+  #Correlation bewtween points and salary
+  corr_points_salary <- cov_points_salary/(sd_points*sd_salary)
+  mean_points
+  mean_salary
+  var_points
+  var_salary
+  sd_points
+  sd_salary
+  cov_points_salary
+  corr_points_salary
+
+```
+
+# 4.Simple Linear Regression
+
+```{r}
+  # slope
+  b1 <- corr_points_salary * sd_salary/sd_points
+  b0 <- mean_salary - b1*mean_points
+  y_hat <- b0 + b1*points
+  y_hat
+  summary(y_hat)
+```
+
+```{r include=FALSE}
+  #inline code 
+  
+  #b <- (n*sum(x*y) - sum(x)*sum(y))/(n*sum(x^2)-(sum(x)^2))
+  #a <- (sum(y)-b*sum(x))/n
+  #y <- a+b*x
+```
+'r y'
+
+# Interpreting slope Coefficient
+# B1 represents the difference in the predicted value of Y for each one-unit difference in B1. 
+
+#Interpreting the intercept
+#B0 can be interpreted as the value when you would predict for Y if b1 = 0
+
+```{r}
+  #predicted salary for 0,100,500,1000, 2000
+  x <- c(0,100,500,1000,2000)
+  Y_hat2 <- b0 + b1*x
+  Y_hat2
+```
+
+# 5. Plotting the regression line
+```{r}
+require(stats)  
+plot(points, salary, col = "black", xlab = "Points", ylab = "Salary (in millions)", main = "Scatterplot of Points and Salary")+
+  abline(a = 1.08679969, b = 0.00857372168, col = "blue")+ text(2450,19,"Regression",pch = 1, cex = 1, col = "blue")+
+  lines(lowess(points, salary), col = "red")+text(2250, 28, "lowess",pch =1, cex = 1, col = "red")
+```
+
+# 6. Regression residuals and Coefficient of Determination
+```{r}
+  #vector of residuals
+  residuals_y <- int_salary - y_hat
+  summary(residuals_y)
+  #RSS
+  rss <- sum(residuals_y^2)
+  rss
+  #TSS
+  tss <- sum((int_salary - mean_salary)^2)
+  tss
+  #R-square
+  r_square <- 1-(rss/tss)
+  r_square
+```
+
+# 7. Exploring Position and Experience
+```{r}
+  plot(experience, salary, col = "black",xlab = "Years of Experience", ylab = "Salary (in millions)" , main = "Scatterplot with lowess smooth") + lines(lowess(experience,salary), col = "red")
+```
+
+```{r}
+ #scatterplot3d
+  require(scatterplot3d)
+  scatterplot3d(points, experience, salary, color = "red", main = "3D Scatterplot")
+  
+```
+
+# Experience and Salary do related to each other
+```{r}
+  # boxplot
+  factor_salary <- as.factor(salary)
+  boxplot(int_salary ~ position, data = position, xlab = "position", ylab = "Salary (in millions)", main = "Boxplot")
+```
+
+#Since medians for all of the position look similar, I believe salary and position are not much related to each other.
+
+# 8. Comments and Reflections
+#   1. Most of problems were workable; however, I still do not get the inline code
+#   2. plotting different plots was easy
+#   3. It is nice but still confusing
+#   4. Same as Number 3
+#   5. Yes, I did need help. I got helped from Internet sources
+#   6. It took about 4 to 5 hours
+#   7. For me, it was a inline code
+#   8. Inline code
+#   9. Not that much.
+#   10. It was exciting. I feel proud of completing this assignment by myself.
+
+
+
