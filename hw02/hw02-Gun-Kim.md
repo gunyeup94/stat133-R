@@ -14,7 +14,7 @@ Gun Yeup Kim
     ## package 'readr' successfully unpacked and MD5 sums checked
     ## 
     ## The downloaded binary packages are in
-    ##  C:\Users\Gun Yeup Kim\AppData\Local\Temp\RtmpMB7a3r\downloaded_packages
+    ##  C:\Users\Gun Yeup Kim\AppData\Local\Temp\RtmpaGwwes\downloaded_packages
 
 ``` r
 library(dplyr)
@@ -279,7 +279,7 @@ str(dat2)
 
 ``` r
   #Efficiency and Salary
-  plot(dat$EFF, dat$Salary)+lines(lowess(dat$EFF,dat$Salary), col = "red")
+  plot(dat$EFF, dat$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
 ```
 
 ![](hw02-Gun-Kim_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-1.png)

@@ -90,7 +90,7 @@ str(dat2)
 # 5. Efficiency and Salary
 ```{r}
   #Efficiency and Salary
-  plot(dat$EFF, dat$Salary)+lines(lowess(dat$EFF,dat$Salary), col = "red")
+  plot(dat$EFF, dat$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
   cor(dat$EFF, dat$Salary)
 ```
 
