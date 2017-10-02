@@ -1,0 +1,110 @@
+---
+title: "hw02-Gun-Kim"
+author: "Gun Yeup Kim"
+date: "2017³â 10¿ù 1ÀÏ"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+  install.packages(c("dplyr","readr"),repos = "http://cran.us.r-project.org")
+library(dplyr)
+library(readr)
+```
+
+
+#2. Import the data in R
+
+```{r}
+  dat <- read.csv('nba2017-player-statistics.csv',colClasses = c(Position = "factor", Salary = "double"), stringsAsFactors = FALSE)
+  str(dat)
+```
+
+```{r}
+dat2 <- read_csv('nba2017-player-statistics.csv', col_types = list(Position = col_factor(levels = NULL)))
+str(dat2)
+```
+
+#3. Right afte importing the data
+
+```{r}
+  #Replacing Experience to integers
+  dat$Experience <- replace(dat$Experience, dat$Experience == "R", 0)
+  dat$Experience <- as.integer(dat$Experience)
+  str(dat)
+```
+
+#4. Performance of players
+
+```{r}
+  #add variables
+  Missed_FG <- dat$FGA - dat$FGM
+  Missed_FT <- dat$FTA - dat$FTM
+  Total_points <- 3*dat$Points3+2*dat$Points2+dat$FTM
+  REB <- dat$OREB + dat$DREB
+  Min_per_game <- dat$MIN/dat$GP
+  EFF = (Total_points + REB + dat$AST + dat$STL + dat$BLK - Missed_FG - Missed_FT - dat$TO)/dat$GP
+  dat <- cbind(dat, Missed_FG, Missed_FT,Total_points, REB, Min_per_game, EFF)
+  summary(EFF)
+  hist(EFF, main = "Histogram of Efficiency (EFF)", col = "gray")
+```
+
+```{r}
+  #Display the player name, team, salary, and EFF value of the top-10 players by EFF
+  new_data_frame_top_10 <- dat[order(-dat$EFF),]
+  new_data_frame_top_10 <- slice(new_data_frame_top_10,1:10)
+  new_data_frame_top_10 <- select(new_data_frame_top_10, Player, Team, Salary, EFF)
+  new_data_frame_top_10
+  
+```
+
+```{r}
+  #provide the names of the players that have a negative EFF
+  negative_EFF_Player <- filter(dat, EFF < 0)
+  negative_EFF_Player
+```
+
+```{r}
+  #compute the correlation coefficients between EFF and all the variables used in the EFF
+  cor_Total_points <- cor(dat$Total_points, dat$EFF)
+  cor_REB <- cor(dat$REB, dat$EFF)
+  cor_STL <- cor(dat$STL, dat$EFF)
+  cor_AST <- cor(dat$AST, dat$EFF)
+  cor_BLK <- cor(dat$BLK, dat$EFF)
+  cor_Missed_FT <- cor(dat$Missed_FT, dat$EFF)*(-1)
+  cor_Missed_FG <- cor(dat$Missed_FG, dat$EFF)*(-1)
+  cor_TO <- cor(dat$TO, dat$EFF)*(-1)
+  
+  data_frame_for_Correlation_EFF <- data.frame(c(PTS = cor_Total_points, REB = cor_REB, STL = cor_STL, AST = cor_AST, BLK = cor_BLK, Missed_FT = cor_Missed_FT, Missed_FG = cor_Missed_FG, TO = cor_TO))
+  Correlation_EFF <- (c(cor_Total_points,cor_REB,cor_STL,cor_AST,cor_BLK,cor_Missed_FT, cor_Missed_FG, cor_TO))
+  cols <- c("red", "gray")[(Correlation_EFF > 0)+1]
+  barplot(Correlation_EFF, names.arg = c("PTS","REB","STL","AST","BLK","Missed_FT","Missed_FG","TO"), cex.names = 0.7, main = "Correlations between Player Stats and EFF", col = cols)
+
+
+```
+
+
+# 5. Efficiency and Salary
+```{r}
+  #Efficiency and Salary
+  plot(dat$EFF, dat$Salary)+lines(lowess(dat$EFF,dat$Salary), col = "red")
+  cor(dat$EFF, dat$Salary)
+```
+
+#Efficiency and salary are positivly correlated. 
+
+```{r}
+  #Create another data frame for MPG >20
+  players2 <- filter(dat, Min_per_game >20)
+  plot(players2$EFF, players2$Salary)+lines(lowess(players2$EFF,players2$Salary), col ="red")
+  cor(players2$EFF, players2$Salary)
+```
+#This data frame also shows that efficiency and salary are positivly correlated but the correlation between these two are little bit smaller than all players' data. 
+
+#6. Comments and Reflections
+#filtering was confusing because of NA
+#ploting was easy because we did a lot of practice
+#It took me about 4 hours
