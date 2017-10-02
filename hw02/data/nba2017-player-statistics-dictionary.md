@@ -61,3 +61,10 @@ There are 441 rows and 24 columns
 column labels are the variables that I mentioned above.
 
 Units or measurement are various. Those could be name, dollars, points, and number.
+
+For the reference (see [main source](https://www.basketball-reference.com) for more details)
+
+This is the sample link for the data source of a given team (e.g. GS Warriors) (see [GS Warriors](https://www.basketball-reference.com/teams/GSW/2017.html) for more details)
+
+
+
