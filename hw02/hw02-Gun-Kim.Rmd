@@ -18,13 +18,14 @@ library(readr)
 
 #2. Import the data in R
 
+
 ```{r}
-  dat <- read.csv('nba2017-player-statistics.csv',colClasses = c(Position = "factor", Salary = "double"), stringsAsFactors = FALSE)
+  dat <- read.csv('data/nba2017-player-statistics.csv',colClasses = c(Position = "factor", Salary = "double"), stringsAsFactors = FALSE)
   str(dat)
 ```
 
 ```{r}
-dat2 <- read_csv('nba2017-player-statistics.csv', col_types = list(Position = col_factor(levels = NULL)))
+dat2 <- read_csv('data/nba2017-player-statistics.csv', col_types = list(Position = col_factor(levels = NULL)))
 str(dat2)
 ```
 
@@ -90,7 +91,7 @@ str(dat2)
 # 5. Efficiency and Salary
 ```{r}
   #Efficiency and Salary
-  plot(dat$EFF, dat$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
+  plot(dat$EFF, dat$Salary, main = "EFF and Salary", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
   cor(dat$EFF, dat$Salary)
 ```
 
@@ -99,7 +100,7 @@ str(dat2)
 ```{r}
   #Create another data frame for MPG >20
   players2 <- filter(dat, Min_per_game >20)
-  plot(players2$EFF, players2$Salary)+lines(lowess(players2$EFF,players2$Salary), col ="red")
+  plot(players2$EFF, players2$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(players2$EFF,players2$Salary), col ="red")
   cor(players2$EFF, players2$Salary)
 ```
 #This data frame also shows that efficiency and salary are positivly correlated but the correlation between these two are little bit smaller than all players' data. 

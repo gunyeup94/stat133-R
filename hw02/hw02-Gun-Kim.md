@@ -14,7 +14,7 @@ Gun Yeup Kim
     ## package 'readr' successfully unpacked and MD5 sums checked
     ## 
     ## The downloaded binary packages are in
-    ##  C:\Users\Gun Yeup Kim\AppData\Local\Temp\RtmpaGwwes\downloaded_packages
+    ##  C:\Users\Gun Yeup Kim\AppData\Local\Temp\RtmpMVkUBf\downloaded_packages
 
 ``` r
 library(dplyr)
@@ -43,7 +43,7 @@ library(readr)
 =======================
 
 ``` r
-  dat <- read.csv('nba2017-player-statistics.csv',colClasses = c(Position = "factor", Salary = "double"), stringsAsFactors = FALSE)
+  dat <- read.csv('data/nba2017-player-statistics.csv',colClasses = c(Position = "factor", Salary = "double"), stringsAsFactors = FALSE)
   str(dat)
 ```
 
@@ -74,7 +74,7 @@ library(readr)
     ##  $ TO          : int  116 77 88 0 25 210 79 4 68 39 ...
 
 ``` r
-dat2 <- read_csv('nba2017-player-statistics.csv', col_types = list(Position = col_factor(levels = NULL)))
+dat2 <- read_csv('data/nba2017-player-statistics.csv', col_types = list(Position = col_factor(levels = NULL)))
 str(dat2)
 ```
 
@@ -279,7 +279,7 @@ str(dat2)
 
 ``` r
   #Efficiency and Salary
-  plot(dat$EFF, dat$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
+  plot(dat$EFF, dat$Salary, main = "EFF and Salary", xlab = "EFF", ylab = "Salary")+lines(lowess(dat$EFF,dat$Salary), col = "red")
 ```
 
 ![](hw02-Gun-Kim_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-1.png)
@@ -298,7 +298,7 @@ Efficiency and salary are positivly correlated.
 ``` r
   #Create another data frame for MPG >20
   players2 <- filter(dat, Min_per_game >20)
-  plot(players2$EFF, players2$Salary)+lines(lowess(players2$EFF,players2$Salary), col ="red")
+  plot(players2$EFF, players2$Salary, main = "Scatterplot for Player2", xlab = "EFF", ylab = "Salary")+lines(lowess(players2$EFF,players2$Salary), col ="red")
 ```
 
 ![](hw02-Gun-Kim_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-10-1.png)
