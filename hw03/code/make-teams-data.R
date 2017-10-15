@@ -48,7 +48,7 @@ final_organized_team <- merge(final_organized_team,blocks)
 final_organized_team <- merge(final_organized_team,turnovers)
 final_organized_team <- merge(final_organized_team,fouls)
 final_organized_team <- merge(final_organized_team,efficiency)
-summary(final_organized_team)
+final_organized_team$team <- as.character(final_organized_team$team)
 
 sink(file = "../data/teams-summary.txt")
 summary(final_organized_team)
