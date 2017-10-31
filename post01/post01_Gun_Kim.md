@@ -18,7 +18,7 @@ DataComputing package is written by Danny Kaplan, and when we type `?DataComputi
 
 In order to download DataComputing package, we might need to use devtools package to install DataComputing package. Devtools package is the `tools to make developting R packages easier.` We do not have to use this package all the time, but we might need to use this package for installing DataComputing package. I will go over the reason while I show you how to download the DataComputing package!
 
-In this post we will also go over how to manipulate the data sets that contain stock prices for Visa and MasterCard Inc. At the end, we want to see that if their movements of prices are similar enough to do a pairs trading (see [Pairs Trading](http://www.investopedia.com/university/guide-pairs-trading/) for more details. I will not go over this trading strategy since this is out of the topic).
+In this post, we will also go over how to manipulate the data sets that contain stock prices for Visa and MasterCard Inc. At the end, we want to see that if their movements of prices are similar enough to do a pairs trading (see [Pairs Trading](http://www.investopedia.com/university/guide-pairs-trading/) for more details. I will not go over this trading strategy since this is out of the topic).
 
 Downloading DataComputing package
 =================================
