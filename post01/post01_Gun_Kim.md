@@ -1,4 +1,4 @@
-post1 - Data Manipulation
+Post1 - Data Manipulation
 ================
 Gun Yeup Kim
 201-10-29

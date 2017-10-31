@@ -1,10 +1,8 @@
 ---
-title: "post1 - Data Manipulation"
+title: "Post1 - Data Manipulation"
 author: "Gun Yeup Kim"
 date: "201-10-29"
-output:
-  github_document: default
-  html_document: default
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
