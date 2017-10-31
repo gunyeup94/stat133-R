@@ -1,10 +1,10 @@
 Post1 - Data Manipulation
 ================
 Gun Yeup Kim
-201-10-29
+2017-10-29
 
-Specify on example of data cleaning by using DataComputing and devtools packages.
-=================================================================================
+Focusing on example of data cleaning by using DataComputing and devtools packages.
+==================================================================================
 
 What is Data Manipulation?
 ==========================

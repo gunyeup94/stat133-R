@@ -1,14 +1,14 @@
 ---
 title: "Post1 - Data Manipulation"
 author: "Gun Yeup Kim"
-date: "201-10-29"
+date: "2017-10-29"
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-#Specify on example of data cleaning by using DataComputing and devtools packages.
+#Focusing on example of data cleaning by using DataComputing and devtools packages.
 
 
 #What is Data Manipulation?
