@@ -30,15 +30,15 @@ In this post we will also go over how to manipulate the data sets that contain s
 
 Let's try downloading the DataComputing package as usual.
 
-Type `library(DataComputing)` in to your chunk. You will get this error.
+Type `library(DataComputing)` in to your chunk. If this package was already built in to R studio, you will not get any error. However, you might get this error.
 
 ![Error for loading the package.](./pictures/post1_pic1.png)
 
-Then type `install.packages(DataComputing)` to install the package. You will also get this error.
+Then let's try `install.packages(DataComputing)` to install the package. You might also get this error.
 
 ![Error for downloading the package.](./pictures/post1_pic2.png)
 
-These errors might happen to you because your R account is not up to date with the DataComputing package. This does not mean you cannot download this package! From here, devtools package comes in. 
+These errors might happen to you because your R account is not up to date with the DataComputing package. This does not mean you cannot download this package! At this point, devtools package comes in. 
 
 First, we need to download devtools.
 
@@ -54,11 +54,11 @@ Now, `library(DataComputing)` will work since we successfully install the DataCo
   library(DataComputing)
 ```
 
-
+When we load DataComputing package, we can see that R automatically load dplyr and ggplot2 for us. Thus, we will only load DataComputing package to go over our example!
 
 #Data Cleaning for Visa and MasterCard Inc.
 
-Our data for Visa and MasterCard Inc. is in the data file. Let's go head and load our data to this R studio.
+Our data for Visa and MasterCard Inc. is in the `data` folder, which is located in `post01` folder. Let's go head and load our data to this R studio.
 
 ```{r}
   #loading the data
