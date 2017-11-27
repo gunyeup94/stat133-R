@@ -7,6 +7,7 @@ This assignment requires shiny app to visualize:
 	3. The relationships between pairs of scores
 
 This homework involves working around three primary aspects:
+
 	1. Low level coding:
 		Writing functions
 		Testing functions
