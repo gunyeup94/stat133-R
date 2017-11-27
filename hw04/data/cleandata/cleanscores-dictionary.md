@@ -13,12 +13,12 @@ Here's the description of the R objects in 'cleanscore.csv':
 - `HW8`: 334 students' HW8 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
 - `HW9`: 334 students' HW9 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
 - `ATT`: 334 students' Lab attendence scores
-- `QZ1`: 334 students' QZ1 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
-- `QZ2`: 334 students' QZ2 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
-- `QZ3`: 334 students' QZ3 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
-- `QZ4`: 334 students' QZ4 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
-- `EX1`: 334 students' EX1 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
-- `EX2`: 334 students' EX2 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `QZ1`: 334 students' rescaled QZ1 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `QZ2`: 334 students' rescaled QZ2 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `QZ3`: 334 students' rescaled QZ3 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `QZ4`: 334 students' rescaled QZ4 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `EX1`: 334 students' rescaled EX1 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
+- `EX2`: 334 students' rescaled EX2 scores, and converted NA to 0 from the original data, which is 'rawscore.csv'
 
 codified missing variable:
 
