@@ -1,3 +1,12 @@
+# ===================================================================
+# Title: functions.R
+# Description: create functions to get the finalized grade for 334 students.  
+# Input(s):
+# Output(s): 
+# Author: Gun Yeup Kim
+# Date: 11-18-2017
+# ===================================================================
+
 #removing missing
 remove_missing <- function(x){
   if(is.numeric(x)){

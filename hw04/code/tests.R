@@ -1,4 +1,14 @@
+# ===================================================================
+# Title: tests.R
+# Description: create functions to test out functions from functions.R  
+# Input(s): functions.R
+# Output(s): 
+# Author: Gun Yeup Kim
+# Date: 11-18-2017
+# ===================================================================
+
 library(testthat)
+source("functions.R")
 
 #testing remove_missing function
 context("Test to remove missing Variable")

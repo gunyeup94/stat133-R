@@ -1,3 +1,11 @@
+# ===================================================================
+# Title: gradevis.R
+# Description: using the shiny app to visualize the grade distribution 
+# Input(s): cleanscores.csv, functions.R
+# Output(s): 
+# Author: Gun Yeup Kim
+# Date: 11-18-2017
+# ===================================================================
 #
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.

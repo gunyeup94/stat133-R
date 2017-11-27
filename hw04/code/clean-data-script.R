@@ -1,3 +1,13 @@
+# ===================================================================
+# Title: clean-data-script.R
+# Description: create a csv data file after data preparation  
+# Input(s): rawscores.csv
+# Output(s): summary-cleanscores.txt, Homework-stats, Lab-stats, Overall-stats, Quiz-stats, summary-cleanscores, summary-rawscores, Test1-stats, Test2-stats, cleanscores.csv
+# Author: Gun Yeup Kim
+# Date: 11-18-2017
+# ===================================================================
+
+
 raw_score <- read.csv("../data/rawdata/rawscores.csv")
 
 library(stringr)
@@ -7,7 +17,7 @@ raw_score$QZ2 <- as.numeric(raw_score$QZ2)
 raw_score$QZ4 <- as.numeric(raw_score$QZ4)
 
 
-
+#Printing out the summary of rawscores
 sink("../output/summary-rawscores.txt")
 
 str(raw_score)
@@ -131,6 +141,7 @@ for(i in 1:nrow(change_to_zero)){
 }
 change_to_zero$Grade <- all_grade
 
+#Printing summaries of codified variables
 columnlist=c("Lab","Homework","Quiz","Test1","Test2","Overall")
 for (i in columnlist){
   filename=paste("../output/","-stats.txt",sep=i)
@@ -141,10 +152,11 @@ for (i in columnlist){
   sink()
 }
 
-
+#printing the summary of cleanscores
 sink("../output/summary-cleanscores.txt")
 str(change_to_zero)
 sink()
 
+#write out the cleanscores to csv file
 write.csv(change_to_zero,"../data/cleandata/cleanscores.csv")
 
