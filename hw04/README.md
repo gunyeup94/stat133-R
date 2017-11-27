@@ -23,10 +23,10 @@ This homework involves working around three primary aspects:
 		"ggvis"
 		optional: "readr", "dplyr", etc
 
-```{R
+```{R}
 library(shiny)
 
 # Run an app from a subdirectory in the repo
 runGitHub("stat133-hws-fall17", gunyeup94, subdir = "hw04/app")
-}
+
 ```
