@@ -9,7 +9,7 @@ Introducing Heatmaps in R
 What is heatmap?
 ================
 
-A heatmap is a graphical representation of data where the individual values contained in a matrix are represented as colors.The easy way to understand a heatmap is to think of a cross table or spreadsheet which contains colors instead of numbers. There are lots of benefits of using a heatmap. Users of heatmap can see up to 100,000 distinct elements on a single screen. Users can find patterns, trends and allocations at a high level of granularity and can find visually focus on what's relevant in their data by mapping important values to the size and color of elements. Furthermore, users can see a summary of the data while simultaneously viewing the details, enhancing communication between managers and their reports by allowing them to the same visualization when discussing issues. Basically, a heatmap is used to understand data visually.
+A heatmap is a graphical representation of data where the individual values contained in a matrix are represented as colors.The easy way to understand a heatmap is to think of a cross table or spreadsheet which contains colors instead of numbers. There are lots of benefits of using a heatmap. Users of heatmap can see up to 100,000 distinct elements on a single screen. They can find patterns, trends and allocations at a high level of granularity and also can find visually focus on what's relevant in their data by mapping important values to the size and color of elements. Furthermore, users can see a summary of the data while simultaneously viewing the details, enhancing communication between managers and their reports by allowing them to the same visualization when discussing issues. Basically, a heatmap is used to understand data visually.
 
 This post will cover..
 ======================
@@ -230,7 +230,7 @@ It looks much better than the default one! We can now see that which part is hig
 Conclusion and take home message!
 =================================
 
-This post covered what the heatmap is and how to create the heatmap by using `heatmap()` function and ggplot. From statistic 133, we have learned how to create a plot, histogram, boxplot, and scatterplot. However, we have not learned about heatmap. I hope you learned the existence of heatmap and use this heatmap to understand your data better! There are more tools to control your own heatmap. Thus, after going over this post and if you like to learn more about the heatmap, you should play with the heatmap function or ggplot! Thank you for reading my post and I hope this post help you to analyze your data!
+This post covered what the heatmap is and how to create the heatmap by using `heatmap()` function and ggplot. From statistic 133, we have learned how to create a plot, histogram, boxplot, and scatterplot. However, we have not learned about heatmap. I hope you learned the existence of heatmap and use this heatmap to understand your data better! There are more tools to control your own heatmap. Thus, after going over this post and if you like to learn more about the heatmap, you should play with the heatmap function or ggplot! Thank you for reading my post and I hope this post helps you to analyze your data!
 
 Reference
 =========
